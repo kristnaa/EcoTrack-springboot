@@ -1,0 +1,13 @@
+# Ignore Maven target folder
+/target/
+
+# Ignore compiled Java classes
+*.class
+
+# Ignore JAR files
+*.jar
+
+# Optional: IDE-specific files (Eclipse)
+*.classpath
+*.project
+.settings/
