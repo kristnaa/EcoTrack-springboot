@@ -1,0 +1,13 @@
+com\ecotrack\service\EcoActionService.class
+com\ecotrack\service\UserService.class
+com\ecotrack\model\User$Role.class
+com\ecotrack\model\EcoAction.class
+com\ecotrack\controller\UserController.class
+com\ecotrack\model\Badge.class
+com\ecotrack\EcoTrackApplication.class
+com\ecotrack\controller\AdminController.class
+com\ecotrack\repository\UserRepository.class
+com\ecotrack\repository\EcoActionRepository.class
+com\ecotrack\model\User.class
+com\ecotrack\repository\BadgeRepository.class
+com\ecotrack\controller\EcoActionController.class

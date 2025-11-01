@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+      th:replace="~{layout :: layout(~{::title}, ~{::section})}">
+<head>
+    <title>Leaderboard - EcoTrack</title>
+</head>
+<body>
+    <section class="container mt-5">
+        <h2 class="mb-4">Top Eco Contributors</h2>
+        
+        <div class="row">
+            <div class="col">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead class="bg-eco text-white">
+                            <tr>
+                                <th>Rank</th>
+                                <th>User</th>
+                                <th>Actions</th>
+                                <th>Badge</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="leader, stat : ${leaders}">
+                                <td th:text="${stat.count}"></td>
+                                <td th:text="${leader[1]}"></td>
+                                <td th:text="${leader[2]}"></td>
+                                <td>
+                                    <span class="badge bg-success" th:if="${leader[2] >= 25}">Green Hero</span>
+                                    <span class="badge bg-info" th:if="${leader[2] >= 10 && leader[1] < 25}">Eco Starter</span>
+                                    <span class="badge bg-secondary" th:if="${leader[2] < 10}">New Member</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div th:if="${leaders.empty}" class="alert alert-info">
+                    No eco actions recorded yet. Be the first to contribute!
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

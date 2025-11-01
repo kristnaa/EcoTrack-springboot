@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+      th:replace="~{layout :: layout(~{::title}, ~{::section})}">
+<head>
+    <title>Home - EcoTrack</title>
+</head>
+<body>
+    <section>
+        <!-- Hero Section -->
+        <div class="hero-section text-center" 
+             style="background: url('https://images.pexels.com/photos/1374295/pexels-photo-1374295.jpeg') no-repeat center center; 
+                    background-size: cover; 
+                    padding: 120px 0; 
+                    color: white;">
+            <div class="container">
+                <h1 class="display-4 fw-bold">Start Your Green Journey</h1>
+                <p class="lead">Track your environmental actions and inspire others to make a difference.</p>
+                <a href="/register" class="btn btn-light btn-lg mt-3">Join Now</a>
+            </div>
+        </div>
+
+        <!-- Feature Cards Section -->
+        <div class="container mt-5">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 text-center shadow-sm">
+                        <div class="card-body">
+                            <h3 class="card-title">🌱 Track Actions</h3>
+                            <p class="card-text">Record your eco-friendly activities and build a sustainable lifestyle.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 text-center shadow-sm">
+                        <div class="card-body">
+                            <h3 class="card-title">🏆 Earn Badges</h3>
+                            <p class="card-text">Get recognized for your environmental contributions.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 text-center shadow-sm">
+                        <div class="card-body">
+                            <h3 class="card-title">🌍 Make Impact</h3>
+                            <p class="card-text">Join a community of environmentally conscious individuals.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Nature Highlights Section -->
+        <section class="nature-section py-5 bg-light mt-5">
+            <div class="container">
+                <h2 class="text-center mb-4">Our Eco Inspirations</h2>
+                <p class="text-center mb-5">Explore the beauty of nature and get inspired to take eco-friendly actions.</p>
+                
+                <div class="row g-4">
+                    <div class="col-md-4">
+                       <!-- <div class="card h-100 shadow-sm">-->
+						    <div class="card border-10">
+                            <img src="https://images.pexels.com/photos/34950/pexels-photo.jpg" class="card-img-top" alt="Forest">
+                            <div class="card-body">
+                                <h5 class="card-title">Forests & Trees</h5>
+                                <p class="card-text">Learn about the importance of planting trees and preserving forests.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="card h-100 shadow-sm">
+                            <img src="https://images.pexels.com/photos/1320684/pexels-photo-1320684.jpeg" alt="Ocean">
+                            <div class="card-body">
+                                <h5 class="card-title">Clean Oceans</h5>
+                                <p class="card-text">Understand the impact of reducing plastic & keeping our oceans clean.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="card h-100 shadow-sm">
+                            <img src="https://images.pexels.com/photos/3305852/pexels-photo-3305852.jpeg" class="card-img-top" alt="Recycling">
+                            <div class="card-body">
+                                <h5 class="card-title">Recycling</h5>
+                                <p class="card-text">Take small actions in daily life to reduce waste and recycle effectively.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+
+                <!-- Bottom CTA -->
+                <div class="mt-5 text-center">
+                    <h3>Join the EcoTrack Community</h3>
+                    <p>Record your eco-friendly actions, earn badges, and inspire others to make a difference. Together, we can make a greener planet!</p>
+                    <a href="/register" class="btn btn-success btn-lg mt-3">Start Your Journey</a>
+                </div>
+            </div>
+        </section>
+    </section>
+</body>
+</html>

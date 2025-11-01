@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+      th:replace="~{layout :: layout(~{::title}, ~{::section})}">
+<head>
+    <title>Admin Dashboard - EcoTrack</title>
+</head>
+<body>
+    <section class="container mt-5">
+        <h2 class="mb-4">Admin Dashboard</h2>
+        
+        <div class="row">
+            <div class="col-md-12 mb-4">
+                <div class="card">
+                    <div class="card-header bg-eco text-white">
+                        <h3 class="card-title mb-0">User Management</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Badge Level</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="user : ${users}">
+                                        <td th:text="${user.id}"></td>
+                                        <td th:text="${user.name}"></td>
+                                        <td th:text="${user.email}"></td>
+                                        <td th:text="${user.badgeLevel}"></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-danger">Delete</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header bg-eco text-white">
+                        <h3 class="card-title mb-0">Eco Actions Review</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>User</th>
+                                        <th>Title</th>
+                                        <th>Category</th>
+                                        <th>Date</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="action : ${actions}">
+                                        <td th:text="${action.id}"></td>
+                                        <td th:text="${action.user.name}"></td>
+                                        <td th:text="${action.title}"></td>
+                                        <td th:text="${action.category}"></td>
+                                        <td th:text="${#temporals.format(action.date, 'dd-MM-yyyy')}"></td>
+                                        <td>
+                                            <span class="badge bg-success" th:if="${action.verified}">Verified</span>
+                                            <span class="badge bg-warning" th:unless="${action.verified}">Pending</span>
+                                        </td>
+                                        <td>
+                                            <form th:action="@{/admin/action/verify/{id}(id=${action.id})}" 
+                                                  method="post" 
+                                                  class="d-inline" 
+                                                  th:if="${!action.verified}">
+                                                <button type="submit" class="btn btn-sm btn-success">Verify</button>
+                                            </form>
+                                            <button class="btn btn-sm btn-danger">Delete</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+      th:replace="~{layout :: layout(~{::title}, ~{::section})}">
+<head>
+    <title>Add Eco Action - EcoTrack</title>
+</head>
+<body>
+    <section class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header bg-eco text-white">
+                        <h2 class="card-title mb-0" th:text="${ecoAction.id == null ? 'Add New Eco Action' : 'Edit Eco Action'}"></h2>
+                    </div>
+                    <div class="card-body">
+                        <form th:action="${ecoAction.id == null ? '/action/add' : '/action/edit/' + ecoAction.id}" 
+                              th:object="${ecoAction}" 
+                              method="post" 
+                              enctype="multipart/form-data">
+                            
+                            <div class="mb-3">
+                                <label for="title" class="form-label">Title</label>
+                                <input type="text" class="form-control" id="title" th:field="*{title}" required>
+                                <div class="text-danger" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="description" class="form-label">Description</label>
+                                <textarea class="form-control" id="description" th:field="*{description}" rows="3" required></textarea>
+                                <div class="text-danger" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="category" class="form-label">Category</label>
+                                <select class="form-control" id="category" th:field="*{category}" required>
+                                    <option value="">Select a category</option>
+                                    <option value="Recycling">Recycling</option>
+                                    <option value="Energy Conservation">Energy Conservation</option>
+                                    <option value="Water Conservation">Water Conservation</option>
+                                    <option value="Sustainable Transport">Sustainable Transport</option>
+                                    <option value="Waste Reduction">Waste Reduction</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                                <div class="text-danger" th:if="${#fields.hasErrors('category')}" th:errors="*{category}"></div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="date" class="form-label">Date</label>
+                                <input type="date" class="form-control" id="date" th:field="*{date}" required>
+                                <div class="text-danger" th:if="${#fields.hasErrors('date')}" th:errors="*{date}"></div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="image" class="form-label">Image (Optional)</label>
+                                <input type="file" class="form-control" id="image" name="image" accept="image/*">
+                            </div>
+
+                            <button type="submit" class="btn btn-eco">Save Action</button>
+                            <a href="/dashboard" class="btn btn-secondary">Cancel</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
